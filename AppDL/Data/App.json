@@ -1,0 +1,42 @@
+[
+    {
+        "CustomerNumber": 1,
+        "Name": "Ali",
+        "Item": "Apple",
+        "Price": 2,
+        "Addresses": [],
+        "Address": "63 town city"
+    },
+    {
+        "CustomerNumber": 2,
+        "Name": "David",
+        "Item": "laptop",
+        "Price": 0,
+        "Addresses": [],
+        "Address": "122 Laidlaw ave"
+    },
+    {
+        "CustomerNumber": 3,
+        "Name": "Tim",
+        "Item": "Watch",
+        "Price": 0,
+        "Addresses": [],
+        "Address": "32 mill city "
+    },
+    {
+        "CustomerNumber": 551,
+        "Name": "Frank",
+        "Item": "iPhone",
+        "Price": 0,
+        "Addresses": [],
+        "Address": "frank street"
+    },
+    {
+        "CustomerNumber": 123,
+        "Name": "Fam",
+        "Item": "iPhone",
+        "Price": 0,
+        "Addresses": [],
+        "Address": "fam123"
+    }
+]

@@ -15,4 +15,4 @@ entrypoint ["dotnet", "AppApi.dll"]
 expose 5000
 
 #We need to change our ASP.NET application to also start listening to 5000 port
-env ASPNETCORE_URLS=https://+:5000
+env ASPNETCORE_URLS=http://+:5000

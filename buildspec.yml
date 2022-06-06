@@ -1,4 +1,4 @@
-# Another file that tells the AWS computer what to do and how to build your application 
+# Another file that tells the AWS computer what to do and how to build your application.
 version: 0.2
 
 phases: 

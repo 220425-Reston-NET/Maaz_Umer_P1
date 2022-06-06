@@ -21,7 +21,7 @@ phases:
   post_build:
     commands:
       - echo 'Creating the publish folder for the app'
-      - dotnet publish -c Release -o punlish
+      - dotnet publish -c Release -o publish
 
 artifacts:
   files:

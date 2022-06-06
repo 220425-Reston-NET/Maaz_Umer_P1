@@ -1,4 +1,5 @@
-from mcr.microsoft.com/dotnet/sdk:6.0 as build 
+#Another stage that is all about running the application or how to run
+from mcr.microsoft.com/dotnet/aspnet:6.0 as runtime
 
 #workdir docker instruction 
 workdir /app

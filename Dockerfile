@@ -4,7 +4,9 @@ from mcr.microsoft.com/dotnet/sdk:6.0 as build
 workdir /app
 
 #Remove the copy instruction here
-#copy /publish ./
+
+#Copy the publish folder into the image
+copy /publish ./
 
 #Change the CMD to entrypoint
 entrypoint ["dotnet", "AppApi.dll"]

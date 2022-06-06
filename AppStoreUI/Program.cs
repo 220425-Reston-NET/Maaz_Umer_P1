@@ -1,41 +1,20 @@
-﻿using AppBL;
+﻿global using Serilog;
+using AppBL;
 using AppDL;
 using AppStoreUI;
 using Microsoft.Extensions.Configuration;
 
+
+//Initializing my logger
+Log.Logger = new LoggerConfiguration() //LoggerConfiguration used to configure your logger and create it
+    .WriteTo.File("./logs/user.txt") //Configuring the logger to save information to a file called user.txt inside of logs folder
+    .CreateLogger(); //A method to create the logger
+
+//Initializing my configuration object
 var configuration = new ConfigurationBuilder() //Builder class used to create my configuration object
         .SetBasePath(Directory.GetCurrentDirectory()) //Sets the base path to the current directory
         .AddJsonFile("appsettings.json") //Grabs the specific json file on where the information is from
         .Build(); //Creates the object
-
-// Console.WriteLine("Hello, World!");
-
-// //Create an object
-// App storeObj = new App();
-// storeObj.StoreID = 100;
-// Console.WriteLine(storeObj.StoreID);
-// storeObj.StoreID = 0;
-// Console.WriteLine(storeObj.StoreID);
-
-// //Adding description to obj
-// Description des1 = new Description();
-// des1.Name = "Dairy";
-// Description des2 = new Description();
-// des2.Name = "Fruites";
-
-// storeObj.Descriptions = new List<Description>();
-
-// storeObj.Descriptions.Add(des1);
-// storeObj.Descriptions.Add(des2);
-
-// //Display everything that description 
-
-// foreach (Description item in storeObj.Descriptions)
-// {
-//     Console.WriteLine(item.Name);
-// }
-
-Console.Clear();
 
 //Creating MainMenu obj 
 IMenu menu = new MainMenu();
@@ -49,15 +28,18 @@ while (repeat)
 
     if (ans == "MainMenu")
     {
+        Log.Information("User going to Main Menu");
         menu = new MainMenu();
     }
     else if (ans == "AddCustomer")
     {
         // Need to add Customer BL objects inside of the parameter
+        Log.Information("User going to AddCustomer Menu");
         menu = new AddCustomer1(new CustomerBL(new SQLCustomerRepository(configuration.GetConnectionString("Maaz Umer Store"))));
     }
     else if (ans == "SearchCustomer")
-    {
+    {   
+        Log.Information("User going to Search Menu");
         menu = new SearchApp(new CustomerBL(new SQLCustomerRepository(configuration.GetConnectionString("Maaz Umer Store"))));
     }
     else if (ans == "SelectItem")

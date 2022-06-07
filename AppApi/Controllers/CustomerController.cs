@@ -36,7 +36,7 @@ namespace AppApi.Controllers
         }
 
         [HttpPost("AddCustomer")]
-        public IActionResult AddCustomer([FromBody] Customer p_cust)
+        public IActionResult AddCustomer([FromQuery] Customer p_cust)
         {
             try
             {

@@ -29,5 +29,10 @@ namespace AppDL
         {
             throw new NotImplementedException();
         }
+
+        public void Update(Inventory joinTable)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

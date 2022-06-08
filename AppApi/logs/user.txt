@@ -1,0 +1,1 @@
+2022-06-07 14:25:15.767 -04:00 [INF] User going to GetAll

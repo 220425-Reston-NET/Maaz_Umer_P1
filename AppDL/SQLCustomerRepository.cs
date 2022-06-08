@@ -34,7 +34,7 @@ namespace AppDL
         //-----------------------------Without Async-----------------------------------
         public List<Customer> GetAll()
         {
-            string SQLQuery = @"select * from Customer";
+            string SQLQuery = @"select * from Customer1";
             List<Customer> listOfCustomer = new List<Customer>();
 
             //SqlConnection object is responsible for establishing a connection to your database
@@ -128,6 +128,11 @@ namespace AppDL
             }
 
         public void update(Customer p_resources)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(Inventory joinTable)
         {
             throw new NotImplementedException();
         }

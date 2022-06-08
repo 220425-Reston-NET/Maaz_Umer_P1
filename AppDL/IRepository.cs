@@ -24,6 +24,7 @@ namespace AppDL
         /// </summary>
         /// <returns></returns>
         List<T> GetAll();
+        void Update(Inventory joinTable);
 
         /// <summary>
         /// This gives all the resources asynchronous

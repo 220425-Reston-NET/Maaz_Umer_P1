@@ -24,6 +24,21 @@ namespace AppDL
             throw new NotImplementedException();
         }
 
+        public void Update(Product p_resources)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(Inventory joinTable)
+        {
+            throw new NotImplementedException();
+        }
+
+        // public void Update(Inventory joinTable)
+        // {
+        //     throw new NotImplementedException();
+        // }
+
         public void update(Product p_resources)
         {
             throw new NotImplementedException();

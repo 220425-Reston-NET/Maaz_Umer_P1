@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using AppBL;
 using StoreModel;
 using Microsoft.Data.SqlClient;
+using Serilog;
 
 namespace AppApi.Controllers
 {
@@ -26,11 +27,13 @@ namespace AppApi.Controllers
         {
             try
             {
-            List<Customer> listOfCurrentCustomer = await _custBL.GetAllCustomerAsync();
-            return Ok(listOfCurrentCustomer); 
+                Log.Information("User going to GetAllCustomer");
+                List<Customer> listOfCurrentCustomer = await _custBL.GetAllCustomerAsync();
+                return Ok(listOfCurrentCustomer);
             }
             catch (SqlException)
             {
+                Log.Information("No customer Exsit");
                 return NotFound("No Customer Exist");
             }
         }
@@ -40,13 +43,15 @@ namespace AppApi.Controllers
         {
             try
             {
+                Log.Information("User going to Added Customer");
                 _custBL.AddCustomer(p_cust);
 
-                return Created("Customer was created" ,p_cust);
+                return Created("Customer was created", p_cust);
             }
             catch (SqlException)
             {
-                return Conflict();   
+                Log.Information("Customer was not added");
+                return Conflict();
             }
         }
 
@@ -55,10 +60,12 @@ namespace AppApi.Controllers
         {
             try
             {
+                Log.Information("User going to SearchCustomer");
                 return Ok(_custBL.SearchCustomerByName(custName));
             }
             catch (SqlException)
             {
+                Log.Information("No customer was found!");
                 return Conflict();
             }
         }

@@ -27,22 +27,8 @@ namespace StoreModel
         }
         
         public string Name { get; set; }
-       // public string Item { get; set; }   
-        //public int Price { get; set; }
-        //public List<Product> Addresses { get; set; }
         public string Address { get; set; }
         public int PhoneNumber { get; set; }
-
-        //Everytime you make a new model, make sure you create a constructor 
-        //This constructor will be responsible to instantiating other objects as well as setting default values for other properties 
-        // public Customer()
-        //  {
-        //      CustomerNumber = 1;
-        //      Name = "David";
-        //      Item = "iPhone";
-        //      Address = "31 Blvd street";
-        //      Addresses = new List<Product>();
-        //  }
 
          public override string ToString()
         {

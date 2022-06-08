@@ -16,9 +16,18 @@ namespace AppBL
 
         public void AddCustomer(Customer c_app)
         {
+            Customer foundedcustomer = SearchCustomerByName(c_app.Name);
+            if (foundedcustomer == null)
+            {
                 _custRepo.Add(c_app);
 
+            }
+            else
+            {
+                throw new Exception("Customer name already exsit");
+            }
         }
+
 
         public void AddListToCustomer(Customer a_CustomerName)
         {
@@ -50,7 +59,7 @@ namespace AppBL
         {
             return _custRepo.GetAll();
         }
-                public async Task<List<Customer>> GetAllCustomerAsync()
+        public async Task<List<Customer>> GetAllCustomerAsync()
         {
             return await _custRepo.GetAllAsync();
         }

@@ -16,7 +16,7 @@ namespace AppDL
         //=====================Dependency Injection ========================
         public void Add(Customer c_resources)
         {
-            string SQLQuery = "insert into Customer values (@customerName,@CustomerA,@CustomerN)";
+            string SQLQuery = "insert into Customer1 values (@customerName,@CustomerA,@CustomerN)";
 
             using (SqlConnection con = new SqlConnection(_connectionString))
             {
@@ -78,7 +78,7 @@ namespace AppDL
         //--------------------------------------With Async--------------------------------------
         public async Task<List<Customer>> GetAllAsync()
         {
-            string SQLQuery = @"select * from Customer";
+            string SQLQuery = @"select * from Customer1";
             List<Customer> listOfCustomer = new List<Customer>();
 
             //SqlConnection object is responsible for establishing a connection to your database

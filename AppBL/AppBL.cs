@@ -47,7 +47,7 @@ namespace AppBL
                 }
             }
             //There is no return
-            throw new NotImplementedException("No customer was found!");
+            return null;
         }
 
         public List<Customer> SearchCustomerByNumber(int c_appNumber)

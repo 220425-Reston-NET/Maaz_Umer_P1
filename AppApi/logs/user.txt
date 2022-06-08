@@ -1,1 +1,5 @@
 2022-06-07 14:25:15.767 -04:00 [INF] User going to GetAll
+2022-06-07 23:49:46.859 -04:00 [INF] User going to SearchCustomer
+2022-06-08 00:21:35.116 -04:00 [INF] User going to Added Customer
+2022-06-08 00:35:39.372 -04:00 [INF] User going to Added Customer
+2022-06-08 00:41:40.679 -04:00 [INF] User going to Added Customer

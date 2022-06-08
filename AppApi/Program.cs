@@ -19,6 +19,7 @@ builder.Services.AddSwaggerGen();
 
 //builder.Configuration.GetConnectionString("Maaz Umer Store") >> for swagger
 //Environment.GetEnvironmentVariable("Connection_String") >> for aws 
+//fixed addcustomer
 
 builder.Services.AddScoped<IRepository<Customer>, SQLCustomerRepository>(repo => new SQLCustomerRepository(Environment.GetEnvironmentVariable("Connection_String")));
 builder.Services.AddScoped<IAppBL, CustomerBL>();

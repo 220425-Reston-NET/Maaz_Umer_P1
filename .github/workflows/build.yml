@@ -11,6 +11,7 @@ on:
     # Jobs are multiple things you want to do in this computer
     jobs:
 
+      # This is where we will start building a bunch of configuration/dependencies for SonarCloud
       build:
         name: Build
         runs-on: windows-latest

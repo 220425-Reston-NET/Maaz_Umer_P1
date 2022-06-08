@@ -8,7 +8,7 @@ using StoreModel;
 namespace StoreModel.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("api/[controller]")] //added api
 public class StorefrontController : ControllerBase
 {
     private IStoreBL _storeBL;

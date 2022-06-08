@@ -8,24 +8,24 @@ on:
   pull_request:
     branches: [ main ]
 
-# Jobs are multiple things you want to do in this computer
-jobs:
+    # Jobs are multiple things you want to do in this computer
+    jobs:
 
-  # This is where we will start building a bunch of configuration/dependencies for SonarCloud
-  build:
-    name: Build
-    runs-on: windows-latest
-    steps:
+      # This is where we will start building a bunch of configuration/dependencies for SonarCloud
+      build:
+        name: Build
+        runs-on: windows-latest
+        steps:
 
-    # We want the .NET SDK as well to be able to build our application
+      # We want the .NET SDK as well to be able to build our application
       - uses: actions/checkout@v2
       - name: Setup .NET SDK
         uses: actions/setup-dotnet@v1
         with:
           dotnet-version: 6.0.x
 
-    # Installs Java JDK for the code analysis to run on since it depends on it
-      - name: Setup JDK 11
+      # Installs Java JDK for the code analysis to run on since it depends on it
+      - name: Set up JDK 11
         uses: actions/setup-java@v1
         with:
           java-version: 1.11
@@ -47,7 +47,7 @@ jobs:
           path: .\.sonar\scanner
           key: ${{ runner.os }}-sonar-scanner
           restore-keys: ${{ runner.os }}-sonar-scanner
-
+          
       # Installs SonarCloud scanner to your .NET application
       - name: Install SonarCloud scanner
         if: steps.cache-sonar-scanner.outputs.cache-hit != 'true'
@@ -55,17 +55,12 @@ jobs:
         run: |
           New-Item -Path .\.sonar\scanner -ItemType Directory
           dotnet tool update dotnet-sonarscanner --tool-path .\.sonar\scanner
-      # Testing and generating a sonarcloud report for code coverage
-      - name: Test
-        run: dotnet test --logger trx --collect:"XPlat Code Coverage" -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=opencover
-
-      # Builds and generate a sonarcloud report and uploads it to sonarcloud.io website
       - name: Build and analyze
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        shell: powershell
-        run: |
-          .\.sonar\scanner\dotnet-sonarscanner begin /k:"220425-Reston-NET_Stephen_Pagdilao_P1" /o:"220425-reston-net" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.coverage.exclusions=**/PokeApi/wwwroot/lib/** /d:sonar.cs.opencover.reportsPaths="**/TestResults/**/coverage.opencover.xml" -d:sonar.vstest.reportsPath="**/TestResults/*.trx"
+          shell: powershell
+          run: |
+          .\.sonar\scanner\dotnet-sonarscanner begin /k:"220425-Reston-NET_Maaz_Umer_P1" /o:"220425-reston-net" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
           dotnet build ./AppApi -c Release
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"

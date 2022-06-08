@@ -20,6 +20,7 @@ public class StorefrontController : ControllerBase
     [HttpGet("ViewStoreInventory")]
     public IActionResult ViewStoreInventory([FromQuery] int p_sId)
     {
+        Log.Information("User going to ViewStoreInventory");
         return Ok(_storeBL.ViewStoreInventory(p_sId));
     }
 }

@@ -11,7 +11,6 @@ on:
     # Jobs are multiple things you want to do in this computer
     jobs:
 
-      # This is where we will start building a bunch of configuration/dependencies for SonarCloud
       build:
         name: Build
         runs-on: windows-latest
@@ -58,7 +57,7 @@ on:
 
       - name: Build and analyze
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any.
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           shell: powershell
           run: |
